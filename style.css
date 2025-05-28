@@ -1,221 +1,118 @@
+/* Base */
 body {
   margin: 0;
-  padding: 0;
-  background: black;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   font-family: 'Courier New', monospace;
+}
+
+/* Game Window */
+.game-window {
+  width: 960px;
+  height: 540px;
+  border: 10px solid #333;
+  box-shadow: 0 0 30px #000;
+  background-color: black;
+  position: relative;
   overflow: hidden;
 }
 
+/* Room Layout */
 #front-desk-room {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: url('../assets/images/frontdesk_bg.png') no-repeat center center/cover;
+  position: relative;
 }
 
+/* Clickables */
+.clickable {
+  position: absolute;
+  cursor: pointer;
+}
+
+#cup { left: 40%; bottom: 18%; width: 40px; }
+#bell { left: 55%; bottom: 18%; width: 40px; }
+#door { right: 5%; bottom: 10%; width: 80px; }
+#shelf { left: 5%; top: 25%; width: 100px; }
+#window { right: 5%; top: 10%; width: 120px; }
+
+.exit-sign {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  cursor: pointer;
+}
+
+/* Character */
 #character-container {
   position: absolute;
-  bottom: 20%;
+  bottom: 10%;
   left: 10%;
 }
-
 #character-sprite {
   width: 200px;
   height: auto;
 }
-
 .talk-btn {
   position: absolute;
+  left: 210px;
   top: 0;
-  left: 220px;
-  width: 50px;
-  height: 50px;
-  background: url('../assets/images/talk/lavi_button.png') no-repeat center center/contain;
+  width: 48px;
+  height: 48px;
+  background: url('../assets/talk/lavi_button.png') no-repeat center/contain;
   border: none;
   cursor: pointer;
 }
 
-.interactive {
-  position: absolute;
-  cursor: pointer;
-}
-
-#cup { bottom: 15%; left: 40%; width: 40px; }
-#bell { bottom: 15%; left: 55%; width: 40px; }
-#door { bottom: 10%; right: 10%; width: 80px; }
-#shelf { top: 20%; left: 5%; width: 100px; }
-#window { top: 5%; right: 10%; width: 120px; }
-
+/* Thought Box */
 #thought-box {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 10px;
+  padding: 8px 12px;
   color: white;
-  background: rgba(0,0,0,0.6);
-  font-size: 16px;
-  display: none;
+  font-size: 14px;
   text-align: center;
-}
-
-#talk-container {
-  position: absolute;
-  top: 20%;
-  left: 35%;
-  width: 400px;
-  background: rgba(0,0,0,0.8);
-  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
   display: none;
-  flex-direction: column;
-  align-items: center;
 }
 
-#speech-bubble {
+/* Chat Bubble */
+.chat-bubble {
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  width: 360px;
+  background-color: rgba(0,0,0,0.85);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  display: none;
+}
+
+.chat-bubble img {
   width: 100%;
 }
 
-.talk-text {
-  color: white;
+#talk-options {
   margin-top: 10px;
-}
-
-.talk-options {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin-top: 10px;
+  gap: 4px;
 }
-
 .talk-option {
-  background: #333;
-  color: white;
+  background: #222;
   border: none;
-  padding: 5px;
+  color: white;
+  padding: 6px;
+  font-size: 14px;
   cursor: pointer;
 }
-
 .talk-option.leave {
   background: #a00;
-}
-#store-room-scene {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: url('../assets/images/store_room_bg.png') no-repeat center center/cover;
-}
-
-.door-btn {
-  position: absolute;
-  bottom: 30%;
-  width: 150px;
-  cursor: pointer;
-}
-
-#gallery-door {
-  left: 20%;
-}
-
-#adopt-door {
-  right: 20%;
-}
-
-.center-bottom-btn {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background-color: #222;
-  color: white;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-#gallery-room {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: url('../assets/images/gallery_bg.png') no-repeat center center/cover;
-}
-
-.gallery-item {
-  position: absolute;
-  cursor: pointer;
-}
-
-#bookcase { left: 10%; bottom: 30%; width: 120px; }
-#artdesk { left: 45%; bottom: 20%; width: 180px; }
-#tv { right: 10%; bottom: 25%; width: 140px; }
-
-.gallery-return {
-  position: absolute;
-  left: 0;
-  bottom: 10%;
-  width: 100px;
-  cursor: pointer;
-}
-
-/* Popup Modal */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup.hidden {
-  display: none;
-}
-
-.popup-content {
-  width: 80%;
-  max-width: 800px;
-  background: #222;
-  color: white;
-  padding: 20px;
-  position: relative;
-}
-
-.popup-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-#adoption-room {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  background: url('../assets/images/adoption_bg.png') no-repeat center center/cover;
-}
-
-.adoption-return {
-  position: absolute;
-  left: 0;
-  bottom: 10%;
-  width: 100px;
-  cursor: pointer;
-}
-
-.adopt-pet {
-  position: absolute;
-  cursor: pointer;
-  width: 120px;
-}
-
-#adopt-left { bottom: 25%; left: 25%; }
-#adopt-center { bottom: 30%; left: 45%; }
-#adopt-right { bottom: 25%; right: 25%; }
-
-.info-stand {
-  position: absolute;
-  bottom: 10%;
-  right: 10%;
-  width: 100px;
-  cursor: pointer;
 }
