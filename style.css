@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+}
+
+#front-desk-room {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('../assets/images/frontdesk_bg.png') no-repeat center center/cover;
+}
+
+#character-container {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+}
+
+#character-sprite {
+  width: 200px;
+  height: auto;
+}
+
+.talk-btn {
+  position: absolute;
+  top: 0;
+  left: 220px;
+  width: 50px;
+  height: 50px;
+  background: url('../assets/images/talk/lavi_button.png') no-repeat center center/contain;
+  border: none;
+  cursor: pointer;
+}
+
+.interactive {
+  position: absolute;
+  cursor: pointer;
+}
+
+#cup { bottom: 15%; left: 40%; width: 40px; }
+#bell { bottom: 15%; left: 55%; width: 40px; }
+#door { bottom: 10%; right: 10%; width: 80px; }
+#shelf { top: 20%; left: 5%; width: 100px; }
+#window { top: 5%; right: 10%; width: 120px; }
+
+#thought-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  background: rgba(0,0,0,0.6);
+  font-size: 16px;
+  display: none;
+  text-align: center;
+}
+
+#talk-container {
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  width: 400px;
+  background: rgba(0,0,0,0.8);
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+#speech-bubble {
+  width: 100%;
+}
+
+.talk-text {
+  color: white;
+  margin-top: 10px;
+}
+
+.talk-options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.talk-option {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.talk-option.leave {
+  background: #a00;
+}
