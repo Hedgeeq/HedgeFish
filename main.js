@@ -38,3 +38,7 @@ function playSound(name) {
   const sound = new Audio(`assets/sounds/${name}.mp3`);
   sound.play();
 }
+function handleCupInteraction() {
+  showThought("You touched the cup.");
+  // Will expand based on currentPersonality logic in future versions
+}
