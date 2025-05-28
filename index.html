@@ -3,48 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Front Desk</title>
+  <title>Lavi’s Front Desk</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+
+<div class="game-window">
   <div id="front-desk-room">
 
-    <!-- Background Image -->
+    <!-- Background -->
     <div class="background" id="desk-bg"></div>
 
-    <!-- Character & Talk -->
+    <!-- Exit Sign -->
+    <img id="exit-sign" class="exit-sign" src="assets/icons/exit.png" alt="Exit" />
+
+    <!-- Character + Talk -->
     <div id="character-container">
       <img id="character-sprite" src="assets/sprites/lavi_idle.png" alt="Character" />
       <button id="talk-button" class="talk-btn"></button>
     </div>
 
-    <!-- Interactive Objects -->
-    <img id="cup" class="interactive" src="assets/images/cup.png" alt="Cup" />
-    <img id="bell" class="interactive" src="assets/images/bell.png" alt="Bell" />
-    <img id="door" class="interactive" src="assets/images/door.png" alt="Door" />
-    <img id="shelf" class="interactive" src="assets/images/shelf.png" alt="Shelf" />
-    <img id="window" class="interactive" src="assets/images/window.png" alt="Window" />
+    <!-- Clickables -->
+    <img id="cup" class="clickable" src="assets/images/cup.png" alt="Cup" />
+    <img id="bell" class="clickable" src="assets/images/bell.png" alt="Bell" />
+    <img id="door" class="clickable" src="assets/images/door.png" alt="Door" />
+    <img id="shelf" class="clickable" src="assets/images/shelf.png" alt="Shelf" />
+    <img id="window" class="clickable" src="assets/images/window.png" alt="Window" />
 
-    <!-- Thought Bubble -->
+    <!-- Thought Box -->
     <div id="thought-box"></div>
 
-    <!-- Talk Interface -->
-    <div id="talk-container" class="hidden">
-      <img id="speech-bubble" src="assets/images/bubbles/lavi_bubble.png" alt="Speech Bubble" />
-      <div class="talk-text" id="talk-text">Hello! How may I help you?</div>
-      <div class="talk-options">
-        <button class="talk-option" data-question="store">What is this place?</button>
-        <button class="talk-option" data-question="cup">What’s up with that cup?</button>
-        <button class="talk-option" data-question="you">Who are you?</button>
+    <!-- Chat UI -->
+    <div id="talk-container" class="chat-bubble hidden">
+      <img id="speech-bubble" src="assets/bubbles/lavi_bubble.png" alt="Bubble" />
+      <div id="talk-text">Howdy do! How may I be of service to you, friend?</div>
+      <div id="talk-options">
+        <button class="talk-option" data-type="store">What is this place?</button>
+        <button class="talk-option" data-type="cup">What’s up with that cup?</button>
+        <button class="talk-option" data-type="you">Who are you?</button>
         <button class="talk-option leave">Never mind.</button>
       </div>
     </div>
 
   </div>
+</div>
 
-  <script src="js/main.js"></script>
-  <script src="js/character.js"></script>
-  <script src="js/talk.js"></script>
-  <script src="js/weather.js"></script>
+<!-- JS Scripts -->
+<script src="js/main.js"></script>
+<script src="js/character.js"></script>
+<script src="js/talk.js"></script>
+<script src="js/weather.js"></script>
 </body>
 </html>
