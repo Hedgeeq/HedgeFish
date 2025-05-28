@@ -4,16 +4,16 @@ const talkText = document.getElementById("talk-text");
 
 const dialogues = {
   lavi: {
-    greeting: "Howdy do! How may I be of service to you, friend?",
-    store: "This place? Organized chaos at its finest!",
+    greeting: "Hello! How may I help you?",
+    store: "Just a small place to sell little good. Nothing big.",
     cup: "That’s my cup. Emotional support, don't judge.",
-    you: "Name’s Lavi. Kinda run this place."
+    you: "My name’s Lavi! I work as a mascot and shopkeeper here."
   },
   maj: {
-    greeting: "Yooo~ Need something? I'm your guy!",
-    store: "Everything’s kinda everywhere… let’s explore!",
+    greeting: "Howdy do! How may I be of service to you, friend?",
+    store: "Oh this ol place? Just a really cool shop!",
     cup: "I keep moving it, don’t I? Haha.",
-    you: "I’m Maj! Vibes manager, unofficially."
+    you: "I’m Maj! The fictive of fun!! If that isn't obvious."
   },
   x: {
     greeting: "Hey. All good?",
