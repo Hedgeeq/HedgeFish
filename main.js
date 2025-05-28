@@ -2,28 +2,39 @@ document.addEventListener("DOMContentLoaded", () => {
   setupWindowWeather();
   setupInteractables();
   initializePersonality();
+  setupExitLogic();
 });
+
 function setupInteractables() {
   const shelf = document.getElementById("shelf");
   const cup = document.getElementById("cup");
   const door = document.getElementById("door");
   const bell = document.getElementById("bell");
+  const window = document.getElementById("window");
 
-  shelf.addEventListener("click", () => {
-    showThought("A shelf with various belongings.");
-  });
+  shelf.addEventListener("click", () => showThought("A shelf with various belongings."));
+  window.addEventListener("click", () => showThought(`It is ${getWeather()} outside.`));
+  door.addEventListener("click", () => window.location.href = "store-room.html");
+  bell.addEventListener("click", () => playSound("bell"));
 
   cup.addEventListener("click", () => {
-    handleCupInteraction();
+    if (currentPersonality === "_") {
+      showThought("Blocked.");
+    } else {
+      handleCupInteraction();
+    }
   });
 
-  door.addEventListener("click", () => {
-    window.location.href = "store-room.html";
-  });
-
-  bell.addEventListener("click", () => {
-    playSound("bell");
-    // Trigger shop logic or transition
+  document.getElementById("character-sprite").addEventListener("click", () => {
+    if (currentPersonality === "maj") {
+      swapPose("giggle");
+    } else if (currentPersonality === "x") {
+      swapPose("nod");
+    } else if (currentPersonality === "_") {
+      swapPose("snarl");
+    } else {
+      swapPose("annoyed");
+    }
   });
 }
 
@@ -31,14 +42,15 @@ function showThought(text) {
   const box = document.getElementById("thought-box");
   box.textContent = text;
   box.style.display = "block";
-  setTimeout(() => (box.style.display = "none"), 4000);
+  clearTimeout(box.timeout);
+  box.timeout = setTimeout(() => box.style.display = "none", 4000);
 }
 
-function playSound(name) {
-  const sound = new Audio(`assets/sounds/${name}.mp3`);
-  sound.play();
-}
-function handleCupInteraction() {
-  showThought("You touched the cup.");
-  // Will expand based on currentPersonality logic in future versions
+function setupExitLogic() {
+  const exit = document.getElementById("exit-sign");
+  if (exit) {
+    exit.addEventListener("click", () => {
+      window.location.href = "index.html"; // optional reset route
+    });
+  }
 }
