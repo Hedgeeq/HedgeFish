@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adoption Centre</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="adoption-room">
+
+    <!-- Background -->
+    <div class="background" id="adoption-bg"></div>
+
+    <!-- Return Buttons -->
+    <img id="adoption-return-door" src="assets/images/doors/return_door.png" class="adoption-return" alt="Back Door" />
+    <button id="back-to-desk" class="center-bottom-btn">⬅ Return to Front Desk</button>
+
+    <!-- Pedestal Clickables -->
+    <img class="adopt-pet" id="adopt-left" src="assets/images/adopts/left.png" alt="Left Pet" />
+    <img class="adopt-pet" id="adopt-center" src="assets/images/adopts/center.png" alt="Center Pet" />
+    <img class="adopt-pet" id="adopt-right" src="assets/images/adopts/right.png" alt="Right Pet" />
+
+    <!-- Info Stand (optional trigger) -->
+    <img id="adoption-info" src="assets/images/adopts/info_stand.png" alt="Info Stand" class="info-stand" />
+
+    <!-- Popups -->
+    <div id="adopt-popup" class="popup hidden">
+      <div class="popup-content">
+        <span class="popup-close" onclick="closePopup()">❌</span>
+        <div id="popup-body">
+          <!-- Pet info will load here -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/popup.js"></script>
+  <script>
+    // Door navigation
+    document.getElementById("adoption-return-door").onclick = () => {
+      window.location.href = "store-room.html";
+    };
+    document.getElementById("back-to-desk").onclick = () => {
+      window.location.href = "index.html";
+    };
+
+    // Clickable pedestal pets
+    document.getElementById("adopt-left").onclick = () => {
+      openAdoptPopup("left");
+    };
+    document.getElementById("adopt-center").onclick = () => {
+      openAdoptPopup("center");
+    };
+    document.getElementById("adopt-right").onclick = () => {
+      openAdoptPopup("right");
+    };
+    document.getElementById("adoption-info").onclick = () => {
+      openAdoptPopup("info");
+    };
+  </script>
+</body>
+</html>
