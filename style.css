@@ -97,3 +97,37 @@ body {
 .talk-option.leave {
   background: #a00;
 }
+#store-room-scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('../assets/images/store_room_bg.png') no-repeat center center/cover;
+}
+
+.door-btn {
+  position: absolute;
+  bottom: 30%;
+  width: 150px;
+  cursor: pointer;
+}
+
+#gallery-door {
+  left: 20%;
+}
+
+#adopt-door {
+  right: 20%;
+}
+
+.center-bottom-btn {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #222;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
