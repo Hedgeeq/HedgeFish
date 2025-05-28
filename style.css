@@ -187,3 +187,35 @@ body {
   right: 10px;
   cursor: pointer;
 }
+#adoption-room {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('../assets/images/adoption_bg.png') no-repeat center center/cover;
+}
+
+.adoption-return {
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  width: 100px;
+  cursor: pointer;
+}
+
+.adopt-pet {
+  position: absolute;
+  cursor: pointer;
+  width: 120px;
+}
+
+#adopt-left { bottom: 25%; left: 25%; }
+#adopt-center { bottom: 30%; left: 45%; }
+#adopt-right { bottom: 25%; right: 25%; }
+
+.info-stand {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  width: 100px;
+  cursor: pointer;
+}
