@@ -1,5 +1,5 @@
 const talkButton = document.getElementById("talk-button");
-const talkContainer = document.getElementById("talk-container");
+const talkUI = document.getElementById("talk-container");
 const talkText = document.getElementById("talk-text");
 
 const dialogues = {
@@ -30,25 +30,23 @@ const dialogues = {
 };
 
 talkButton.addEventListener("click", () => {
-  talkContainer.style.display = "flex";
+  talkUI.style.display = "block";
   talkButton.style.display = "none";
   talkText.textContent = dialogues[currentPersonality].greeting;
+  swapPose("greet");
 });
 
 document.querySelectorAll(".talk-option").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    const type = btn.dataset.question;
+  btn.addEventListener("click", () => {
+    const type = btn.dataset.type;
+
     if (btn.classList.contains("leave")) {
-      talkContainer.style.display = "none";
+      talkUI.style.display = "none";
       talkButton.style.display = "block";
+      swapPose("idle");
     } else {
       talkText.textContent = dialogues[currentPersonality][type];
-      swapPose(currentPersonality, type);
+      swapPose(type);
     }
   });
 });
-
-function swapPose(personality, pose) {
-  const sprite = document.getElementById("character-sprite");
-  sprite.src = `assets/sprites/${personality}_${pose}.png`;
-}
