@@ -1,9 +1,10 @@
-function setupWindowWeather() {
-  const weatherTypes = ["rainy", "sunny", "cloudy", "dark"];
-  const randomWeather = weatherTypes[Math.floor(Math.random() * weatherTypes.length)];
-  const window = document.getElementById("window");
+let currentWeather = "";
 
-  window.addEventListener("click", () => {
-    showThought(`It is ${randomWeather} outside.`);
-  });
+function setupWindowWeather() {
+  const options = ["rainy", "sunny", "cloudy", "dark"];
+  currentWeather = options[Math.floor(Math.random() * options.length)];
+}
+
+function getWeather() {
+  return currentWeather;
 }
